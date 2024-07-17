@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🦜🔗 Text Summarization App</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>🦜🔗 Text Summarization App</h1>
+      <form id="summarize-form">
+        <textarea
+          id="text-input"
+          placeholder="Enter your text"
+          rows="10"
+        ></textarea>
+        <button type="submit">Submit</button>
+      </form>
+      <div id="result">
+        <h2>📝✅ Summarization Result</h2>
+        <p id="summary"></p>
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("summarize-form")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const text = document.getElementById("text-input").value;
+          console.log("Input text:", text); // Debugging line
+          const response = await fetch("/summarize", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ text: text }),
+          });
+          const result = await response.json();
+          console.log("Summary response:", result); // Debugging line
+          document.getElementById("summary").innerText =
+            result.summary || result.error;
+        });
+    </script>
+  </body>
+</html>
