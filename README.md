@@ -13,7 +13,7 @@ This project is a web application developed using the Flask framework. It allows
 ## Usage/Examples
 
 ```javascript
-python app.py
+python main.py
 ```
 
 ![example_images](img/d.png)
