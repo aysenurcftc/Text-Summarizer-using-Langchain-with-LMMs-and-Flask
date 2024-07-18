@@ -14,7 +14,6 @@ def index():
     return render_template('index.html')
 
 
-
 def chunks_and_document(txt):
     text_splitter = CharacterTextSplitter()  
     texts = text_splitter.split_text(txt)  
@@ -59,7 +58,6 @@ def summarize():
     #print("Summary response:", response)  # Debugging line
     
     return jsonify({'summary': response['output_text']})
-
 
 
 

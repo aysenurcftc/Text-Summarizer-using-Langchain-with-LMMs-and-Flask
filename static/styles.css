@@ -37,21 +37,43 @@ button {
     padding: 10px;
     border: none;
     border-radius: 4px;
-    background-color: #007bff;
+    background-color: #f70a8d;
     color: white;
     font-size: 16px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #db9bbc;
 }
 
 #result {
     margin-top: 20px;
+   
 }
 
 #summary {
     font-size: 18px;
     color: #555;
+    display: flex;
+    justify-content: center; /* Yatayda ortalama */
+  
 }
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #f70a8d; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    display: none;
+    justify-content: center;
+  
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
